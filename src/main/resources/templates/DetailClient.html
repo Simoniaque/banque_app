@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Détail du Client</title>
+</head>
+<body>
+<h1>Détail du Client</h1>
+
+<!-- Informations sur le client -->
+<p><strong>ID :</strong> <span th:text="${client.id}"></span></p>
+<p><strong>Nom :</strong> <span th:text="${client.nom}"></span></p>
+<p><strong>Email :</strong> <span th:text="${client.email}"></span></p>
+
+<!-- Tableau des comptes associés -->
+<h2>Comptes associés</h2>
+<div th:if="${client.comptes.isEmpty()}">
+  <p>Ce client n'a aucun compte.</p>
+</div>
+<table th:if="${!client.comptes.isEmpty()}" border="1">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Numéro</th>
+    <th>Solde</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="compte : ${client.comptes}">
+    <td th:text="${compte.id}"></td>
+    <td th:text="${compte.numero}"></td>
+    <td th:text="${compte.solde}"></td>
+  </tr>
+  </tbody>
+</table>
+
+<!-- Lien pour revenir à la liste des clients -->
+<a href="/clients">Retour à la liste</a>
+</body>
+</html>

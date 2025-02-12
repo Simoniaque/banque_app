@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Comptes</title>
+</head>
+<body>
+<h1>Liste des Comptes</h1>
+<a href="/index.html">Page d'accueil</a>
+
+<!-- Vérifiez si des comptes existent -->
+
+<div th:if="${comptes.isEmpty()}">
+    <p>Aucun compte trouvé.</p>
+</div>
+
+<!-- Table pour afficher les comptes -->
+<table th:if="${!comptes.isEmpty()}" border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Numéro</th>
+        <th>Solde</th>
+        <th>Client</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="compte : ${comptes}">
+        <td th:text="${compte.id}"></td>
+        <td th:text="${compte.numero}"></td>
+        <td th:text="${compte.solde}"></td>
+        <td th:text="${compte.client.nom}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- Lien pour créer un nouveau compte -->
+<a href="/comptes/create">Créer un nouveau compte</a>
+</body>
+</html>
