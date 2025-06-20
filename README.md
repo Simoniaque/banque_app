@@ -30,7 +30,7 @@ Un virement entre deux clients différents.
 
 ✅ Autorisé si :
 - Le solde du compte source est suffisant (idem)
-- Le client initiateur est un banquier (autorisation explicite obligatoire)
+- Le client initiateur est un banquier (autorisation obligatoire)
 
 ❌ Refusé si :
 - L’autorisation par un banquier n’est pas donnée (autorisationBanquier = false)
