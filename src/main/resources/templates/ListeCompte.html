@@ -15,22 +15,32 @@
     <p>Aucun compte trouvé.</p>
 </div>
 
+<div th:if="${param.error}" style="color:red; margin: 1em 0;">
+    <p th:text="${param.error}"></p>
+</div>
+<div th:if="${param.success}" style="color:green; margin: 1em 0;">
+    <p th:text="${param.success}"></p>
+</div>
+
 <!-- Table pour afficher les comptes -->
 <table th:if="${!comptes.isEmpty()}" border="1">
     <thead>
     <tr>
         <th>ID</th>
         <th>Numéro</th>
-        <th>Solde</th>
         <th>Client</th>
+        <th>Actions</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="compte : ${comptes}">
         <td th:text="${compte.id}"></td>
         <td th:text="${compte.numero}"></td>
-        <td th:text="${compte.solde}"></td>
         <td th:text="${compte.client.nom}"></td>
+        <td>
+            <a th:href="@{/comptes/{id}(id=${compte.id})}">Détails</a> |
+            <a th:href="@{/comptes/{id}/delete(id=${compte.id})}">Supprimer</a>
+        </td>
     </tr>
     </tbody>
 </table>

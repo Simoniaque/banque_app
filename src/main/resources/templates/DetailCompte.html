@@ -8,7 +8,26 @@
 <h1>Détail du Compte</h1>
 <p><strong>ID :</strong> <span th:text="${compte.id}"></span></p>
 <p><strong>Nom :</strong> <span th:text="${compte.numero}"></span></p>
-<p><strong>Email :</strong> <span th:text="${compte.client}"></span></p>
-<a href="/compte">Retour à la liste</a>
+<p><strong>Email :</strong> <span th:text="${compte.client.email}"></span></p>
+<p><strong>Solde :</strong> <span th:text="${compte.solde}"></span></p>
+<p><strong>Decouvert :</strong> <span th:text="${compte.decouvertAutorise}"></span></p>
+<p><strong>Virement :</strong>
+        | <a th:href="@{/comptes/{id}/virementInterne/form(id=${compte.id})}">Virement Interne</a>
+        | <a th:href="@{/comptes/{id}/virementExterne/form(id=${compte.id})}">Virement Externe</a>
+</p>
+
+<div th:if="${success}" style="color: green;" th:text="${success}"></div>
+<div th:if="${error}" style="color: red;" th:text="${error}"></div>
+
+<form th:action="@{'/comptes/' + ${compte.id} + '/depot'}" method="post">
+    <input type="number" name="montant" step="0.01" placeholder="Montant à déposer">
+    <button type="submit">Déposer</button>
+</form>
+
+<form th:action="@{'/comptes/' + ${compte.id} + '/retrait'}" method="post">
+    <input type="number" name="montant" step="0.01" placeholder="Montant à retirer">
+    <button type="submit">Retirer</button>
+</form>
+<a href="/comptes">Retour à la liste</a>
 </body>
 </html>

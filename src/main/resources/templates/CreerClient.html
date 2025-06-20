@@ -12,6 +12,11 @@
   <label for="email">Email :</label>
   <input type="email" id="email" name="email" th:field="*{email}" required><br>
 
+  <label>
+    <input type="checkbox" th:field="*{estBanquier}" />
+    Est banquier
+  </label>
+
   <button type="submit">Créer</button>
 </form>
 <a href="/clients">Retour à la liste</a>

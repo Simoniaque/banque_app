@@ -43,7 +43,9 @@ public class WS_ClientController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/" +
+            "" +
+            "{id}")
     public ResponseEntity<Object> deleteClient(@PathVariable Long id) {
         return clientRepository.findById(id)
                 .map(client -> {

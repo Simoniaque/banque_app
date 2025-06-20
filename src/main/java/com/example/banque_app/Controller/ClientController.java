@@ -1,4 +1,4 @@
-/*package com.example.banque_app.Controller;
+package com.example.banque_app.Controller;
 
 
 import com.example.banque_app.Model.Client;
@@ -58,4 +58,3 @@ public class ClientController {
         return "index";
     }
 }
-*/
