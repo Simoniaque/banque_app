@@ -1,3 +1,8 @@
+- Une fois le projet cloner, configurez votre base de donnée sur le fichier : application.properties
+- Les tables seront créées automatiquement grace a JPA/Hibernate
+- Pour acceder à l’application : http://localhost:8080/clients
+
+
 📚Fonctionnalités
 
 🔧 Fonctionnalités principales
